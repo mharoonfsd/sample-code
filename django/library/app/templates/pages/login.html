@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <!-- Sidebar Widgets Column -->
+    <div class="row align-items-center">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="card my-4">
+                <h5 class="card-header">Login to Library App</h5>
+                <div class="card-body">
+                    <form action="/client/login/" method="POST">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input name="username"type="text" class="form-control with-margin-10" placeholder="Username">
+                        </div>
+                        <div class="input-group">
+                            <input name="password" type="password" class="form-control with-margin-10" placeholder="Password">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-secondary with-margin-10 full-width" type="button">Login</button>
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+{% endblock %}

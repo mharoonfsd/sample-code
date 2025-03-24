@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title %}
+    Library Rack List
+{% endblock %}
+{% block body %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+              <a class="navbar-brand" href="#">Library App</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+      
+          <!-- Page Content -->
+          <div class="container">
+      
+                <div class="row">
+    
+                        <!-- Blog Entries Column -->
+                        <div class="col-md-8">
+                
+                          <h1 class="my-4">Racks</h1>
+                
+                          <!-- Blog Post -->
+                          {% for rack in racks %}
+                          <div class="card mb-4">
+                            <!--img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"-->
+                            <div class="card-body">
+                              <h2 class="card-title">{{rack.name}}</h2>
+                              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                              <a href="{% url 'rack-detail' rack.id %}" class="btn btn-primary">View Books &rarr;</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                              Last Updated on {{rack.updated}}
+                            </div>
+                          </div>
+                          {% endfor %}
+                        </div>
+                
+                        <!-- Sidebar Widgets Column -->
+                        <div class="col-md-4">
+                
+                          <!-- Search Widget -->
+                          <div class="card my-4">
+                                <h5 class="card-header">Search</h5>
+                                <form action="/client/search/" method="GET">
+                                <div class="card-body">
+                                  <div class="input-group">
+                                    <input name="query" type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                                      <button type="submit" class="btn btn-secondary" type="button">Go!</button>
+                                    </span>
+                                    </div>
+                                </div>
+                            </form>
+                              </div>
+                
+                          <!-- Categories Widget -->
+                          <div class="card my-4">
+                            <h5 class="card-header">Latest Books</h5>
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                  <ul class="list-unstyled mb-0">
+                                    {% for book in latest_books %}
+                                    <li>
+                                      <a href="{% url 'book-detail' book.id %}">{{book.title}} by {{book.author}}</a>
+                                    </li>
+                                    <hr>
+                                    {% endfor %}
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                
+                        </div>
+                
+                      </div>
+                      <!-- /.row -->
+      
+          </div>
+          <!-- /.container -->
+      
+          <!-- Footer -->
+          <footer class="py-5 bg-dark">
+            <div class="container">
+              <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+            </div>
+            <!-- /.container -->
+          </footer>
+{% endblock %}

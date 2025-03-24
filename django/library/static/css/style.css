@@ -1,0 +1,36 @@
+body {
+    padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+}
+
+.with-padding-10 {
+    padding: 10px;
+}
+
+.with-margin-10 {
+    margin: 10px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.right {
+ float: right;
+}
+
+.small-in-h1{
+    font-size: 18px;
+    position: relative;
+    top:15px;
+}
+
+.search-button {
+    position: relative;
+    top:9px;;
+}

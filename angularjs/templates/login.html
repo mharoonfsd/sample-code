@@ -1,0 +1,18 @@
+<div class="w-login">
+    <div class="w-login-container" ng-class="class">
+        <div class="w-login-logo"></div>
+        <div class="w-login-form-container">
+            <form class="w-login-form" id="w-login-form">
+                <div class="w-login-input-container">
+                    <input name="email" ng-model="email" class="form-control w-login-input" type="text" placeholder="Username/Email">
+                    <input name="password" ng-model="password" class="form-control w-login-input" type="password" placeholder="Password">
+                </div>
+                <div class="w-login-error" ng-show="error">{{ error }}</div>
+                <div class="w-login-button-container">
+                    <button type="submit" ng-click="methods.login()" class="btn btn-default w-login-button">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {{ class }} {{ apiAction }} {{ action }} {{ username }} {{ password }} {{ user }}
+</div>

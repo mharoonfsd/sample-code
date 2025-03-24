@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Library Book Detail
+{% endblock %}
+
+{% block body %}
+    <p>Book Detail View for <strong>{{book.title}}</strong> by <strong>{{book.author}}</strong> published on <strong>{{book.published}}</strong> in rack <strong>{{book.rack.name}}</strong></p>
+{% endblock %}
